@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import './Styles.css';
 
-Modal.setAppElement('#root'); // Establece el elemento raíz de la aplicación
+Modal.setAppElement('#root');
 
 const customStyles = {
   content: {
@@ -30,9 +30,9 @@ function App() {
   const [conversionAlert, setConversionAlert] = useState(null);
 
   useEffect(() => {
-    axios.get('https://api.currencyapi.com/v3/latest', {
+    axios.get('https://api.currencyapi.com/v3/latest', { 
       params: {
-        apikey: 'cur_live_yAQ4JRu46IUcPiR5hMpsQW6F7dPZz94MaNDWlNfE',
+        apikey: 'cur_live_yAQ4JRu46IUcPiR5hMpsQW6F7dPZz94MaNDWlNfE',  //API Y CLAVE 
       }
     })
     .then(response => {
@@ -43,7 +43,7 @@ function App() {
     });
 
     const loadedConversionHistory = [
-      // Supongamos que aquí tienes algunas conversiones preexistentes
+    
     ];
 
     setConversionHistory(loadedConversionHistory);
@@ -75,7 +75,7 @@ function App() {
 
     setConversionHistory([...conversionHistory, newConversion]);
 
-    // Mostrar la alerta de conversión exitosa
+    
     setConversionAlert(`Conversión exitosa: ${amount} ${fromCurrency} a ${convertedAmount.toFixed(2)} ${toCurrency}`);
   };
 
